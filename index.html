@@ -1,3 +1,102 @@
-<h1>ERROR 420</h1>
-<hr>
-REQUESTED PAGE CONTAINED TOO MANY MEMES
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>The Dustyard</title>
+        <link rel="icon" href="headstone.png">
+        <script src="jquery-3.1.1.js"></script>
+    </head>
+    <style>
+        body{
+            margin: 0;
+            height: 100%;
+        }
+        h1, h2, h3, h4, h5, h6{
+            margin: 0;
+            padding: 0;
+        }
+        #jumbotron{
+            color: aliceblue;
+            display: block;
+            background-color: #1F1F30;
+            background-image: url(graveyard.png);
+            background-image: linear-gradient(rgba(255,255,255,0), rgba(0,0,0,.8)), url(graveyard.png);
+            background-repeat: no-repeat;
+            background-size: 100%, 100%;
+            background-position: center;
+            text-align: center;
+            line-height: 30vh;
+            height: 30vh;
+        }
+        .large{
+            font-size: 3.5em;
+        }
+        hr{
+            border-color: darkgray;
+            margin: 0;
+            padding: 0;
+        }
+        #content{
+            text-align: center;
+        }
+        .item{
+            margin: 10px 10%;
+            padding: 10px;
+            box-shadow: 1px 1px 10px darkgray;
+        }
+        a{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            color: blue;
+            text-align: left;
+        }
+        #repo{
+            margin: 0% 10%;
+        }
+    </style>
+    <body>
+        <div id="jumbotron"><h1 class="large">The Dustyard</h1></div>
+        <div id="content">
+            <div class="item">
+                <h1>About</h1>
+                <hr>
+                <h3>The Dustyard Is A Place For All My Old Repositories To Die.</h3>
+            </div>
+            <div class="item">
+                <h1>Repositories</h1>
+                <hr>
+                <div id="repo"></div>
+            </div>
+        </div>
+        <script>
+            $.getJSON( "https://api.github.com/users/thedustyard/repos", function( data ) {
+                  var items = [];
+                  $.each( data, function( key, val ) {
+                      var name, link, fullname, description, language;
+                      $.each(val, function(key, val){
+                        switch(key) {
+                            case "name":
+                                name = val;
+                                break;
+                            case "full_name":
+                                fullname = val;
+                                break;
+                            case "html_url":
+                                link = val;
+                                break;
+                            case "description":
+                                description = val;
+                                break;
+                            case "language":
+                                language = val;
+                                break;
+                        }
+                      });
+                      items.push("<br><h2><a href='" + link + "'>" + name + "</a></h2>" + "<br>" + description + "<br>Language: " + language + "<hr>");
+                  });
+                  document.getElementById("repo").innerHTML = items;
+                });
+        </script>
+    </body>
+</html>
