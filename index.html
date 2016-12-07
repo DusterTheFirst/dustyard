@@ -71,9 +71,9 @@
         </div>
         <script>
             $.getJSON( "https://api.github.com/users/thedustyard/repos", function( data ) {
-                  var items = [];
+                  var items = "";
                   $.each( data, function( key, val ) {
-                      var name, link, fullname, description, language;
+                      var name, link, fullname, description, language, lastupdate;
                       $.each(val, function(key, val){
                         switch(key) {
                             case "name":
@@ -91,9 +91,12 @@
                             case "language":
                                 language = val;
                                 break;
+                            case "updated_at":
+                                lastupdate = val;
+                                break;
                         }
                       });
-                      items.push("<br><h2><a href='" + link + "'>" + name + "</a></h2>" + "<br>" + description + "<br>Language: " + language + "<hr>");
+                      items += ("<br><h2><a href='" + link + "'>" + name + "</a></h2>" + "<br>" + description + "<br>Language: " + language + "<br>" + "Last Updated: " + lastupdate.split("T")[0] + " " + lastupdate.split("T")[1].replace("Z", "") + "UTC <hr>");
                   });
                   document.getElementById("repo").innerHTML = items;
                 });
