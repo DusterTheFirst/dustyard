@@ -96,7 +96,7 @@
                                 break;
                         }
                       });
-                      items += ("<br><h2><a href='" + link + "'>" + name + "</a></h2>" + "<br>" + description + "<br>Language: " + language + "<br>" + "Last Updated: " + lastupdate.split("T")[0] + " " + lastupdate.split("T")[1].replace("Z", "") + "UTC <hr>");
+                      items += ("<br><h2><a href='" + link + "'>" + name + "</a></h2>" + "<br>" + description + "<br>Language: " + language + "<br>" + "Last Updated: " + lastupdate.split("T")[0] + " <hr>");
                   });
                   document.getElementById("repo").innerHTML = items;
                 });
