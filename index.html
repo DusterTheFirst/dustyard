@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>The Dustyard</title>
         <link rel="icon" href="headstone.png">
         <script src="jquery-3.1.1.js"></script>
@@ -102,6 +102,12 @@
             font-size: 1.4em;
             color: dimgray;
         }
+        
+        @media only screen and (max-width: 426px){
+            .large{
+                font-size: 2.6em;
+            }
+        }
     </style>
     <body>
         <div id="jumbotron"><h1 class="large">The Dustyard</h1></div>
@@ -111,7 +117,7 @@
                     <b><div class="title">About</div></b>
                 </a>
                 <hr>
-                <div class="feedcontent"> The Dustyard Is A Orginasation Made By DusterTheFirst To Hold All My Old Repositories.. The Repo List On this Page Auto Updates With JQuerys GetJSON On https://api.github.com/users/thedustyard/repos And Parses The Data Into The Feed Items<br>
+                <div class="feedcontent"> The Dustyard Is A Orginasation Made By DusterTheFirst To Hold All My Old Repositories.. The Repo List On this Page Auto Updates With JQuerys GetJSON On My Github Api Page And Parses The Data Into The Feed Items<br>
                 Code <a href="https://github.com/TheDustyard/thedustyard.github.io" target="_blank">Here</a></div>
             </div>
             <div class="feeditem half">
