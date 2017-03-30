@@ -24,7 +24,7 @@ $.getJSON( "https://api.github.com/users/thedustyard/repos", function( data ) {
                break;
          }
       });
-      items += ("<div class='feeditem half'><a class='link' href='${link}'><b><div class='title'>${language} - ${name}</div></b><i><div class='desc'>${fullname}</div></i></a><hr><div class='feedcontent'>${description}</div><i><div class='feeddate'>${lastupdate.split("T")[0]}</div></i></div>");
+      items += ("<div class='feeditem half'><a class='link' href='${link}'><b><div class='title'>${language} - ${name}</div></b><i><div class='desc'>${fullname}</div></i></a><hr><div class='feedcontent'>${description}</div><i><div class='feeddate'>${lastupdate.split('T')[0]}</div></i></div>");
    });
    document.getElementById("repo").innerHTML = items;
 });
