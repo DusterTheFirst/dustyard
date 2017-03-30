@@ -33,7 +33,8 @@ $.getJSON( "https://api.github.com/users/thedustyard/repos", function( data ) {
             <hr>
             <div class='feedcontent'>${description}</div>
             <i><div class='feeddate'>${lastupdate.split('T')[0]}</div></i>
-          </div>`);
+          </div>
+       `);
    });
    document.getElementById("repo").innerHTML = items;
 });
