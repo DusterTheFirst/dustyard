@@ -1,3 +1,5 @@
+//LICENSED UNDER MIT LICENSE! FREE TO USE
+
 $.getJSON( "https://api.github.com/users/thedustyard/repos", function( data ) {
    
    var items = "";
