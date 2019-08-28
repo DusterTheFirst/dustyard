@@ -4,31 +4,31 @@
         <meta name="google-site-verification" content="dcVmGE6qcyvB8MYRE8YF89ECRNjeAde6KNpDpAzTfjg" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>The Dustyard</title>
-        <link rel="icon" href="headstone.png">
-        <script src="jquery-3.1.1.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://old.dusterthefirst.com/res/private/feed.css">
+        <link rel="icon" href="assets/graveyard.png">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <div id="jumbotron"><h1 class="large">The Dustyard</h1></div>
-        <div id="content">
-            <div class="feeditem">
-                <a class="link" href="#">
-                    <b><div class="title">About</div></b>
-                </a>
-                <hr>
-                <div class="feedcontent"> The Dustyard Is A Orginasation Made By DusterTheFirst To Hold All My Old Repositories.. The Repo List On this Page Auto Updates With JQuerys GetJSON On My Github Api Page And Parses The Data Into The Feed Items<br>
-                Code <a href="https://github.com/TheDustyard/thedustyard.github.io" target="_blank">Here</a></div>
-            </div>
-            <div class="feeditem half">
-                <a class="link" href="https://github.com/TheDustyard">
-                    <b><div class="title">Repositories</div></b>
-                    <i><div class="desc">Github > TheDustyard</div></i>
-                </a>
-                <hr>
-                <div id="repo"></div>
-            </div>
+        <div class="jumbotron">
+            <div class="large">The Dustyard</div>
         </div>
-        <script src="get.js"></script>
+        <div class="content">
+            <div class="text">
+                <p>
+                    <a href="https://github.com/TheDustyard/">TheDustyard</a> is an organization that houses all
+                    abandoned or discontinued projects previously developed and or maintained by <a
+                        href="http://github.com/DusterTheFirst">DusterTheFirst</a>
+                </p>
+                <p>
+                    Below is a list of all repositories currently in <a
+                        href="https://github.com/TheDustyard/">TheDustyard</a>. The source code for this webpage is under
+                    the MIT license and can be found <a href="https://github.com/TheDustyard/thedustyard.github.io">on
+                        github</a>
+                </p>
+            </div>
+            <div class="header">Repositories</div>
+            <div id="repositories"></div>
+        </div>
+        <script src="https://unpkg.com/dayjs"></script>
+        <script src="displayRepos.js"></script>
     </body>
 </html>
