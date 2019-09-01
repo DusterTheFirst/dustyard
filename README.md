@@ -1,3 +1,5 @@
+<img src="https://raw.githubusercontent.com/TheDustyard/landing-page/master/assets/headstone.png" align="right" height=150/>
+
 # landing-page
 The landing page for The Dustyard
 
