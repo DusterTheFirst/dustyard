@@ -1,7 +1,7 @@
 window.onload = async () => {
    // Fetch the info about the org
    let org_response = await fetch("https://api.github.com/users/thedustyard/repos");
-   
+
    if (!org_response.ok) {
       console.error(`Error fetching repositories: ${response.status}, ${response.statusText}`);
       return;
@@ -20,7 +20,7 @@ window.onload = async () => {
     *    name: string,
     *    html_url: string,
     *    description: string,
-    *    language: string,
+    *    language: string | undefined,
     *    created_at: string,
     *    updated_at: string
     * }[]}
@@ -46,10 +46,13 @@ window.onload = async () => {
       let created_at_text = dayjs(repo.created_at).format("MMMM D, YYYY");
       let updated_at_text = dayjs(repo.updated_at).format("MMMM D, YYYY");
 
+      // Get the repo language color
+      let repo_language_color = (repo.language === undefined ? undefined : langs[repo.language]?.color) || "#808080"
+
       // Create the outer element
       let element = document.createElement("div");
       element.className = "repo";
-      element.style.borderColor = langs[repo.language].color;
+      element.style.borderColor = repo_language_color;
 
       // Create the title element
       let title = document.createElement("a");
@@ -83,11 +86,11 @@ window.onload = async () => {
 
       let language_text = document.createElement("div");
       language_text.className = "label";
-      language_text.innerText = repo.language;
-      language_text.style.color = langs[repo.language].color;
+      language_text.innerText = repo.language || "None";
+      language_text.style.color = repo_language_color;
       language.appendChild(language_text);
-      
-      // Add the repo element to the weapper
+
+      // Add the repo element to the wrapper
       wrapper_element.appendChild(element);
    }
 }
