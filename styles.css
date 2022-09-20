@@ -67,10 +67,13 @@ a {
     flex-direction: column;
 
     background-color: #30303d;
-    padding: 10px;
 
     border: 3px solid white;
     border-radius: 10px;
+}
+
+.repo .info {
+    padding: 10px;
 }
 
 .repo .title {
@@ -112,7 +115,14 @@ a {
     font-size: 13px;
 
     margin-top: 10px;
-    padding-top: auto;
+
+    padding: .25em 1em;
+
+    border-style: solid;
+    border-width: 3px;
+    border-top-left-radius: 10px;
+    border-right: none;
+    border-bottom: none;
 }
 
 @media only screen and (max-width: 426px) {
