@@ -93,7 +93,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         /** @type {HTMLDivElement} */
         const language = element.querySelector("div.language div.label");
         language.innerText = repo.language || "None";
-        language.style.backgroundColor = repo_language_color;
+        language.style.borderColor = repo_language_color;
 
         // Add the repo element to the wrapper
         wrapper_element.appendChild(element);
