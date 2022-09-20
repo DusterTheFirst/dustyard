@@ -1,6 +1,8 @@
+'use strict';
+
 window.onload = async () => {
    // Fetch the info about the org
-   let org_response = await fetch("https://api.github.com/users/thedustyard/repos");
+   let org_response = await fetch("https://api.github.com/users/thedustyard/repos?sort=pushed");
 
    if (!org_response.ok) {
       console.error(`Error fetching repositories: ${response.status}, ${response.statusText}`);
