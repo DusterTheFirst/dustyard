@@ -65,7 +65,7 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         // The div.repo element
         /** @type {HTMLDivElement} */
-        const element = template.content.cloneNode(true);
+        const element = template.content.firstElementChild.cloneNode(true);
         element.style.borderColor = repo_language_color;
 
         // Set the title
