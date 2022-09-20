@@ -65,37 +65,37 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         // The div.repo element
         /** @type {HTMLDivElement} */
-        const repo = template.content.cloneNode(true);
-        repo.style.borderColor = repo_language_color;
+        const element = template.content.cloneNode(true);
+        element.style.borderColor = repo_language_color;
 
         // Set the title
         /** @type {HTMLAnchorElement} */
-        const title = repo.querySelector("a.title");
+        const title = element.querySelector("a.title");
         title.href = repo.html_url;
         title.innerText = repo.name;
 
         // Set the description
         /** @type {HTMLDivElement} */
-        const description = repo.querySelector("div.description");
+        const description = element.querySelector("div.description");
         description.innerText = repo.description;
 
         // Set the pushed date
         /** @type {HTMLSpanElement} */
-        const pushed = repo.querySelector("div.pushed.at");
+        const pushed = element.querySelector("div.pushed.at");
         pushed.innerText = dayjs(repo.pushed_at).format("MMMM D, YYYY");
 
         // Set the created date
         /** @type {HTMLSpanElement} */
-        const created = repo.querySelector("div.created.at");
+        const created = element.querySelector("div.created.at");
         created.innerText = dayjs(repo.created_at).format("MMMM D, YYYY");
 
         // Set the language
         /** @type {HTMLDivElement} */
-        const language = repo.querySelector("div.language.label");
+        const language = element.querySelector("div.language.label");
         language.innerText = repo.language || "None";
         language.style.backgroundColor = repo_language_color;
 
         // Add the repo element to the wrapper
-        wrapper_element.appendChild(repo);
+        wrapper_element.appendChild(element);
     }
 });
