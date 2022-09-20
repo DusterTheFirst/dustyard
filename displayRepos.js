@@ -81,17 +81,17 @@ window.addEventListener("DOMContentLoaded", async () => {
 
         // Set the pushed date
         /** @type {HTMLSpanElement} */
-        const pushed = element.querySelector("div.pushed.at");
+        const pushed = element.querySelector("div.pushed span.at");
         pushed.innerText = dayjs(repo.pushed_at).format("MMMM D, YYYY");
 
         // Set the created date
         /** @type {HTMLSpanElement} */
-        const created = element.querySelector("div.created.at");
+        const created = element.querySelector("div.created span.at");
         created.innerText = dayjs(repo.created_at).format("MMMM D, YYYY");
 
         // Set the language
         /** @type {HTMLDivElement} */
-        const language = element.querySelector("div.language.label");
+        const language = element.querySelector("div.language div.label");
         language.innerText = repo.language || "None";
         language.style.backgroundColor = repo_language_color;
 
