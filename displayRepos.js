@@ -2,7 +2,7 @@
 
 window.addEventListener("DOMContentLoaded", async () => {
     // Fetch the info about the org
-    let org_response = await fetch(
+    const org_response = await fetch(
         "https://api.github.com/users/thedustyard/repos?sort=pushed"
     );
 
@@ -14,7 +14,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     }
 
     // Fetch language information
-    let lang_response = await fetch(
+    const lang_response = await fetch(
         "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
     );
 
@@ -35,7 +35,7 @@ window.addEventListener("DOMContentLoaded", async () => {
      *    updated_at: string
      * }[]}
      */
-    let repos = await org_response.json();
+    const repos = await org_response.json();
 
     /**
      * @type {{
@@ -45,63 +45,57 @@ window.addEventListener("DOMContentLoaded", async () => {
      *    }
      * }}
      */
-    let langs = await lang_response.json();
+    const langs = await lang_response.json();
 
     // Get the wrapper element to put the repos into
-    let wrapper_element = document.getElementById("repositories");
+    const wrapper_element = document.getElementById("repositories");
+
+    /**
+     * @type {HTMLTemplateElement}
+     */
+    const template = document.querySelector("#repositories template");
 
     // loop through the repos
-    for (let repo of repos) {
+    for (const repo of repos) {
         // Get the repo language color
-        let repo_language_color =
+        const repo_language_color =
             (repo.language === undefined
                 ? undefined
                 : langs[repo.language]?.color) || "#808080";
 
-        // Create the outer element
-        let element = document.createElement("div");
-        element.className = "repo";
-        element.style.borderColor = repo_language_color;
+        // The div.repo element
+        /** @type {HTMLDivElement} */
+        const repo = template.content.cloneNode(true);
+        repo.style.borderColor = repo_language_color;
 
-        // Create the title element
-        let title = document.createElement("a");
-        title.className = "title";
+        // Set the title
+        /** @type {HTMLAnchorElement} */
+        const title = repo.querySelector("a.title");
         title.href = repo.html_url;
         title.innerText = repo.name;
-        element.appendChild(title);
 
-        // Create the description element
-        let description = document.createElement("div");
-        description.className = "description";
+        // Set the description
+        /** @type {HTMLDivElement} */
+        const description = repo.querySelector("div.description");
         description.innerText = repo.description;
-        element.appendChild(description);
 
-        // Create the pushed element
-        let pushed = document.createElement("div");
-        pushed.className = "pushed";
-        let pushed_at = dayjs(repo.pushed_at).format("MMMM D, YYYY");
-        pushed.innerText = `Last pushed on ${pushed_at}`;
-        element.appendChild(pushed);
+        // Set the pushed date
+        /** @type {HTMLSpanElement} */
+        const pushed = repo.querySelector("div.pushed.at");
+        pushed.innerText = dayjs(repo.pushed_at).format("MMMM D, YYYY");
 
-        // Create the created element
-        let created = document.createElement("div");
-        created.className = "created";
-        let created_at = dayjs(repo.created_at).format("MMMM D, YYYY");
-        created.innerText = `Created on ${created_at}`;
-        element.appendChild(created);
+        // Set the created date
+        /** @type {HTMLSpanElement} */
+        const created = repo.querySelector("div.created.at");
+        created.innerText = dayjs(repo.created_at).format("MMMM D, YYYY");
 
-        // Create the language element
-        let language = document.createElement("div");
-        language.className = "language";
-        element.appendChild(language);
-
-        let language_text = document.createElement("div");
-        language_text.className = "label";
-        language_text.innerText = repo.language || "None";
-        language_text.style.color = repo_language_color;
-        language.appendChild(language_text);
+        // Set the language
+        /** @type {HTMLDivElement} */
+        const language = repo.querySelector("div.language.label");
+        language.innerText = repo.language || "None";
+        language.style.backgroundColor = repo_language_color;
 
         // Add the repo element to the wrapper
-        wrapper_element.appendChild(element);
+        wrapper_element.appendChild(repo);
     }
 });
