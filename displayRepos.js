@@ -76,19 +76,19 @@ window.addEventListener("DOMContentLoaded", async () => {
         description.innerText = repo.description;
         element.appendChild(description);
 
-        // Create the created element
-        let created = document.createElement("div");
-        created.className = "created";
-        let created_at = dayjs(repo.created_at).format("MMMM D, YYYY");
-        created.innerText = `Created on ${created_at}`;
-        element.appendChild(created);
-
         // Create the pushed element
         let pushed = document.createElement("div");
         pushed.className = "pushed";
         let pushed_at = dayjs(repo.pushed_at).format("MMMM D, YYYY");
         pushed.innerText = `Last pushed on ${pushed_at}`;
         element.appendChild(pushed);
+
+        // Create the created element
+        let created = document.createElement("div");
+        created.className = "created";
+        let created_at = dayjs(repo.created_at).format("MMMM D, YYYY");
+        created.innerText = `Created on ${created_at}`;
+        element.appendChild(created);
 
         // Create the language element
         let language = document.createElement("div");

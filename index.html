@@ -6,7 +6,6 @@
         <title>The Dustyard</title>
 
         <!-- Preload assets used by css -->
-        <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style">
         <link rel="preload" href="/assets/graveyard.png" as="image">
 
         <link rel="icon" href="assets/headstone.png">
@@ -23,9 +22,11 @@
         <meta property="og:site_name" content="The Dustyard" />
 
         <!-- Preload assets needed by js -->
-        <link rel="preload" href="https://raw.githubusercontent.com/ozh/github-colors/master/colors.json" as="fetch">
-        <link rel="preload" href="https://api.github.com/users/thedustyard/repos?sort=pushed" as="fetch">
-        
+        <link rel="preload" href="https://raw.githubusercontent.com/ozh/github-colors/master/colors.json" as="fetch"
+            type="application/json" crossorigin>
+        <link rel="preload" href="https://api.github.com/users/thedustyard/repos?sort=pushed" as="fetch"
+            type="application.json" crossorigin>
+
         <script src="/vendor/dayjs.min.js"></script>
         <script src="/displayRepos.js" defer></script>
     </head>
@@ -52,7 +53,11 @@
                 </p>
             </div>
             <div class="header">Repositories</div>
-            <div id="repositories"></div>
+            <div id="repositories">
+                <template>
+
+                </template>
+            </div>
         </div>
     </body>
 </html>
