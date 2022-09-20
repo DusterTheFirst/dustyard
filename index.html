@@ -4,8 +4,14 @@
         <meta name="google-site-verification" content="dcVmGE6qcyvB8MYRE8YF89ECRNjeAde6KNpDpAzTfjg" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>The Dustyard</title>
+
+        <!-- Preload assets used by css -->
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style">
+        <link rel="preload" href="/assets/graveyard.png" as="image">
+
         <link rel="icon" href="assets/headstone.png">
         <link rel="stylesheet" href="styles.css">
+
         <!-- Opengraph -->
         <meta property="og:title" content="The Dustyard" />
         <meta property="og:description"
@@ -15,6 +21,13 @@
         <meta property="og:image" content="https://dustyard.dusterthefirst.com/assets/graveyard.png" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:site_name" content="The Dustyard" />
+
+        <!-- Preload assets needed by js -->
+        <link rel="preload" href="https://raw.githubusercontent.com/ozh/github-colors/master/colors.json" as="fetch">
+        <link rel="preload" href="https://api.github.com/users/thedustyard/repos?sort=pushed" as="fetch">
+        
+        <script src="/vendor/dayjs.min.js"></script>
+        <script src="/displayRepos.js" defer></script>
     </head>
     <body>
         <div class="jumbotron">
@@ -23,22 +36,23 @@
         <div class="content">
             <div class="text">
                 <p>
-                    <a href="https://github.com/TheDustyard/">The Dustyard</a> is a GitHub organization that houses all
-                    abandoned or discontinued projects previously developed and or maintained by <a
-                        href="http://github.com/DusterTheFirst">DusterTheFirst</a>
+                    <a href="https://github.com/TheDustyard/">The Dustyard</a>
+                    is a GitHub organization that houses all abandoned or
+                    discontinued projects previously developed and or maintained
+                    by <a href="http://github.com/DusterTheFirst">DusterTheFirst</a>
                 </p>
                 <p>
-                    Below is a list of all repositories currently in <a
-                        href="https://github.com/TheDustyard/">The Dustyard</a>. The source code for this webpage is
-                    under
-                    the MIT license and can be found <a href="https://github.com/TheDustyard/thedustyard.github.io">on
-                        github</a>
+                    Below is a list of all repositories currently in
+                    <a href="https://github.com/TheDustyard/">The Dustyard</a>.
+                    The source code for this webpage is under the MIT license
+                    and can be found
+                    <a href="https://github.com/TheDustyard/thedustyard.github.io">
+                        on github
+                    </a>
                 </p>
             </div>
             <div class="header">Repositories</div>
             <div id="repositories"></div>
         </div>
-        <script src="https://unpkg.com/dayjs"></script>
-        <script src="displayRepos.js"></script>
     </body>
 </html>
