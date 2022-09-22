@@ -1,9 +1,6 @@
 <img src="https://raw.githubusercontent.com/TheDustyard/landing-page/master/assets/headstone.png" align="right" height=150/>
 
-# landing-page
-The landing page for The Dustyard
-
-## The Dustyard
+# The Dustyard
 
 [The Dustyard](https://github.com/TheDustyard/) is a GitHub organization that houses all
 abandoned or discontinued projects previously developed and or maintained by [DusterTheFirst](http://github.com/DusterTheFirst)
