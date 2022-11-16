@@ -3,8 +3,10 @@
 window.addEventListener("DOMContentLoaded", async () => {
     // Fetch the info about the org
     const org_response = await fetch(
-        "https://api.github.com/users/thedustyard/repos?sort=pushed"
+        "https://api.github.com/users/thedustyard/repos?sort=created"
     );
+    // FIXME: Sorting by pushed will not sort by last commit,
+    // but when there was last a push to the repository
 
     if (!org_response.ok) {
         console.error(
